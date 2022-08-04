@@ -1,0 +1,15 @@
+name: hello-world
+image: okteto/hello-world:golang-dev
+workdir: /app
+command: ["bash"]
+volumes:
+- /home
+securityContext:
+  capabilities:
+    add:
+    - SYS_PTRACE 
+forward:
+  - 8080:8080
+  - 2345:2345
+persistentVolume:
+  size: 2Gi
