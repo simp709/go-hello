@@ -7,7 +7,7 @@ spec:
  storageClassName: manual
  selector:
  accessModes:
-   - ReadWriteMany
+   - ReadWriteOnce
  resources:
    requests:
      storage: 2Gi
@@ -31,6 +31,13 @@ spec:
       containers:
       - image: okteto/hello-world:golang
         name: hello-world
+        volumeMounts:
+        - name: persistent-storage
+          mountPath: /home/
+      volumes:
+      - name: persistent-storage
+        persistentVolumeClaim:
+          claimName: pv-example
 
 ---
 
