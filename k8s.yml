@@ -7,7 +7,7 @@ spec:
  storageClassName: manual
  selector:
  accessModes:
-   - ReadWriteOnce
+   - ReadWriteMany
  resources:
    requests:
      storage: 2Gi
